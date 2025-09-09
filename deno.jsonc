@@ -1,0 +1,34 @@
+{
+  // https://docs.deno.com/runtime/fundamentals/workspaces/#example
+  "imports": {
+    "@luca/cases": "jsr:@luca/flag@^1.0.0",
+    "cowsay": "npm:cowsay@^1.3.0",
+    "fs": "https://deno.land/std@0.223.0/fs/mod.ts",
+    "chalk": "npm:chalk@^4",
+    "react": "npm:react",
+    "assert": "jsr:@std/assert",
+    "@fresh/init@": "jsr:@fresh/init@2.0.0-alpha.38"
+  },
+  "workspace": ["./add", "./subtract", "./node"],
+  // https://docs.deno.com/examples/react_tutorial/#configure-the-project
+  "tasks": {
+    "dev": "deno run -A npm:vite & deno run server:start",
+    "build": "deno run -A npm:vite build",
+    "server:start": "deno run -A --watch ./api/main.ts",
+    "serve": "deno run build && deno run server:start"
+  },
+  "compilerOptions": {
+    "types": [
+      "react",
+      "react-dom",
+      "npm:@types/react"
+    ],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "deno.ns"
+    ],
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
+}
